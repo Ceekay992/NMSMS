@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">短信转发器</string>
+    <string name="status_connected">已连接</string>
+    <string name="status_disconnected">未连接</string>
+    <string name="status_connecting">连接中...</string>
+    <string name="hint_server_ip">服务器IP地址</string>
+    <string name="hint_port">端口号</string>
+    <string name="btn_save_config">保存配置</string>
+    <string name="btn_test_connection">测试连接</string>
+    <string name="device_id">设备ID:</string>
+    <string name="last_sync">最后同步:</string>
+    <string name="config_saved">配置已保存</string>
+    <string name="connection_success">连接成功</string>
+    <string name="connection_failed">连接失败</string>
+    <string name="sms_sent_success">验证码已发送</string>
+    <string name="sms_sent_failed">发送失败</string>
+</resources>

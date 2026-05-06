@@ -1,0 +1,46 @@
+[
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.smsforwarder.app-debug-20:/layout_activity_main.xml.flat",
+        "source": "com.smsforwarder.app-main-22:/layout/activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\drawable_edit_text_background.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\drawable\\edit_text_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\drawable_status_indicator.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\drawable\\status_indicator.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\drawable_button_primary.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\drawable\\button_primary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\drawable_button_secondary.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\drawable\\button_secondary.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\drawable_status_indicator_offline.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\drawable\\status_indicator_offline.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\xml_network_security_config.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\xml\\network_security_config.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-debug-20:\\drawable_ic_notification.xml.flat",
+        "source": "C:\\Users\\Administrator\\.gradle\\daemon\\9.0.0\\com.smsforwarder.app-main-22:\\drawable\\ic_notification.xml"
+    }
+]
