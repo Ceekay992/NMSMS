@@ -28,7 +28,9 @@ public class MainActivity extends Activity {
     private Button btnTestConnection;
     private Button btnBatteryOptimization;
     private Button btnAutoStart;
+    private Button btnFloatWindowPermission;
     private CheckBox cbKeepScreenOn;
+    private CheckBox cbFloatWindow;
     private View statusIndicator;
 
     private SharedPreferences pref;
@@ -68,7 +70,8 @@ public class MainActivity extends Activity {
                 .setMessage("为了让APP在息屏后也能接收验证码，必须完成以下操作：\n\n"
                         + "① 点击「加入电池白名单」并完成\n"
                         + "② 点击「设置自启动」并完成\n"
-                        + "③ 打开最近任务，长按SmsForwarder，点击「锁定」\n\n"
+                        + "③ 点击「开启悬浮窗权限」并开启「悬浮窗保活」\n"
+                        + "④ 打开最近任务，长按SmsForwarder，点击「锁定」\n\n"
                         + "如果息屏后仍然无法接收，请打开「保持屏幕常亮」！")
                 .setPositiveButton("我知道了", null)
                 .show();
@@ -83,7 +86,9 @@ public class MainActivity extends Activity {
         btnTestConnection = findViewById(R.id.btnTestConnection);
         btnBatteryOptimization = findViewById(R.id.btnBatteryOptimization);
         btnAutoStart = findViewById(R.id.btnAutoStart);
+        btnFloatWindowPermission = findViewById(R.id.btnFloatWindowPermission);
         cbKeepScreenOn = findViewById(R.id.cbKeepScreenOn);
+        cbFloatWindow = findViewById(R.id.cbFloatWindow);
         statusIndicator = findViewById(R.id.statusIndicator);
     }
 
@@ -99,10 +104,12 @@ public class MainActivity extends Activity {
         String savedIp = pref.getString(KEY_SERVER_IP, "");
         String savedPort = pref.getString(KEY_PORT, "8121");
         boolean keepScreenOn = pref.getBoolean(KEY_KEEP_SCREEN_ON, false);
+        boolean floatWindowEnabled = FloatWindowService.isEnabled(this);
 
         etServerIp.setText(savedIp);
         etPort.setText(savedPort);
         cbKeepScreenOn.setChecked(keepScreenOn);
+        cbFloatWindow.setChecked(floatWindowEnabled);
         tvDeviceId.setText("设备ID: " + deviceId.substring(0, Math.min(8, deviceId.length())).toUpperCase());
     }
 
@@ -111,10 +118,28 @@ public class MainActivity extends Activity {
         btnTestConnection.setOnClickListener(v -> testConnection());
         btnBatteryOptimization.setOnClickListener(v -> requestBatteryOptimization());
         btnAutoStart.setOnClickListener(v -> openAutoStartSetting());
+        btnFloatWindowPermission.setOnClickListener(v -> requestFloatWindowPermission());
 
         cbKeepScreenOn.setOnCheckedChangeListener((buttonView, isChecked) -> {
             pref.edit().putBoolean(KEY_KEEP_SCREEN_ON, isChecked).apply();
             updateScreenKeepOn();
+        });
+
+        cbFloatWindow.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            FloatWindowService.setEnabled(this, isChecked);
+            if (isChecked) {
+                if (hasFloatWindowPermission()) {
+                    FloatWindowService.start(this);
+                    Toast.makeText(this, "悬浮窗保活已开启", Toast.LENGTH_SHORT).show();
+                } else {
+                    cbFloatWindow.setChecked(false);
+                    FloatWindowService.setEnabled(this, false);
+                    Toast.makeText(this, "请先点击「开启悬浮窗权限」按钮授予权限", Toast.LENGTH_LONG).show();
+                }
+            } else {
+                FloatWindowService.stop(this);
+                Toast.makeText(this, "悬浮窗保活已关闭", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 
@@ -236,6 +261,29 @@ public class MainActivity extends Activity {
         } else {
             tvStatus.setText("未连接");
             statusIndicator.setBackgroundColor(0xFFF44336);
+        }
+    }
+
+    private boolean hasFloatWindowPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            return Settings.canDrawOverlays(this);
+        }
+        return true;
+    }
+
+    private void requestFloatWindowPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                intent.setData(android.net.Uri.parse("package:" + getPackageName()));
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, "悬浮窗权限已授予 ✓", Toast.LENGTH_SHORT).show();
+                // 如果用户之前打开了开关，现在尝试启动
+                if (cbFloatWindow.isChecked()) {
+                    FloatWindowService.start(this);
+                }
+            }
         }
     }
 

@@ -1,5 +1,0 @@
-com.smsforwarder.test.app-androidTest-0 C:\Users\Administrator\Desktop\CC\android\SmsForwarder\app\build\generated\res\resValues\androidTest\debug
-com.smsforwarder.test.app-updated_navigation_xml-1 C:\Users\Administrator\Desktop\CC\android\SmsForwarder\app\build\generated\updated_navigation_xml\debugAndroidTest
-com.smsforwarder.test.app-mergeDebugAndroidTestResources-2 C:\Users\Administrator\Desktop\CC\android\SmsForwarder\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.smsforwarder.test.app-mergeDebugAndroidTestResources-3 C:\Users\Administrator\Desktop\CC\android\SmsForwarder\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.smsforwarder.test.app-debugAndroidTest-4 C:\Users\Administrator\Desktop\CC\android\SmsForwarder\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
